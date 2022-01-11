@@ -1,18 +1,17 @@
 # -*- coding: utf-8 -*- #
 
-"""Импортируем welcome_user."""
+"""Импортируем argparse."""
 import argparse
 
+
 def main():
-    parser = argparse.ArgumentParser(description='Process some integers.')
-    parser.add_argument('integers', metavar='N', type=int, nargs='+',
-                        help='an integer for the accumulator')
-    parser.add_argument('--sum', dest='accumulate', action='store_const',
-                        const=sum, default=max,
-                        help='sum the integers (default: find the max)')
+    parser = argparse.ArgumentParser(description='Generate diff')
+    parser.add_argument('file', metavar='first_file')
+    parser.add_argument('file', metavar='second_file')
 
     args = parser.parse_args()
     print(args.accumulate(args.integers))
+
 
 if __name__ == '__main__':
     main()
